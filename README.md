@@ -31,7 +31,7 @@ Como profesor universitario de programación, he visto que el manejo de archivos
 
 Aquí tienes un programa mínimo y claro para manejar archivos en C++:
 
-c```
+cpp```
 #include <iostream>
 #include <fstream>
 using namespace std;
