@@ -1,5 +1,5 @@
 # archivoscpp
-Manejo de archivos con el lenguaje de programación c++
+Manejo de archivos con el lenguaje de programación C++
 
 ## Manejo de Archivos en C++: Una Explicación Detallada
 
