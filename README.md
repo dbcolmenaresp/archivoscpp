@@ -31,7 +31,7 @@ Como profesor universitario de programación, he visto que el manejo de archivos
 
 Aquí tienes un programa mínimo y claro para manejar archivos en C++:
 
-cpp```
+~~~c++
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -64,7 +64,7 @@ int main() {
 
     return 0;
 }
-```
+~~~
 
 Este programa es autocontenido, no tiene funciones auxiliares y muestra el flujo esencial: abrir, escribir/leer, cerrar.
 
