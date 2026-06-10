@@ -17,7 +17,7 @@ Como profesor universitario de programación, he visto que el manejo de archivos
   - `ios::binary` → modo binario (por defecto es texto)
   - `ios::trunc` → truncar el archivo si existe
 
-- **Estado del flujo**: Cada flujo tiene indicadores de estado (good, fail, eof, bad) que debemos verificar después de operaciones.
+- **Estado del flujo**: Cada flujo tiene indicadores de estado (good, fail, eof, bad) que debemos verificar después de realizar las operaciones que se ejecutan en el programa.
 
 - **Archivos de texto vs. binarios**: En texto se almacenan caracteres legibles; en binario se guarda la representación exacta en memoria. La diferencia principal es el manejo de saltos de línea y la codificación.
 
