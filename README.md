@@ -3,7 +3,7 @@ Manejo de archivos con el lenguaje de programación C++
 
 ## Manejo de Archivos en C++: Una Explicación Detallada
 
-Como profesor universitario de programación, he visto que el manejo de archivos es una de las habilidades fundamentales que todo programador debe dominar. En C++, la biblioteca estándar proporciona un conjunto de clases robustas y flexibles para trabajar con archivos, basadas en el concepto de **flujos (streams)**. A continuación, te explicaré los conceptos clave, seguido de un ejemplo completo y comentado.
+En el mundo profesional de la programacion, el manejo de archivos es una de las habilidades fundamentales que todo programador debe dominar. En C++, la biblioteca estándar proporciona un conjunto de clases robustas y flexibles para trabajar con archivos, basadas en el concepto de **flujos (streams)**. A continuación, te explicaré los conceptos clave, seguido de un ejemplo completo y comentado.
 
 ### Conceptos Fundamentales
 
