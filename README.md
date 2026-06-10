@@ -28,64 +28,45 @@ Como profesor universitario de programación, he visto que el manejo de archivos
 3. Abrir el archivo con `open()` o en el constructor.
 4. Verificar que la apertura fue exitosa.
 5. Leer o escribir datos usando los operadores `>>` y `
-#include    // Para ifstream, ofstream, fstream
-#include     // Para std::string
-#include    // Para exit()
 
+Aquí tienes un programa mínimo y claro para manejar archivos en C++:
+
+c```
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-// Función para agregar un estudiante al archivo
-void agregarEstudiante(const string& nombreArchivo) {
-    // Crear un flujo de salida en modo append (añadir al final)
-    // Si el archivo no existe, se crea automáticamente.
-    ofstream archivoSalida(nombreArchivo, ios::app);
+int main() {
+    // --- ESCRIBIR EN UN ARCHIVO ---
+    ofstream archivoSalida("ejemplo.txt"); // Abre (o crea) archivo para escritura
+    if (archivoSalida.is_open()) {
+        archivoSalida << "Hola, mundo!" << endl;
+        archivoSalida << "Esta es una línea de texto." << endl;
+        archivoSalida.close(); // Cierra el archivo
+        cout << "Archivo escrito correctamente." << endl;
+    } else {
+        cout << "Error al abrir archivo para escritura." << endl;
+        return 1;
+    }
 
-    // Verificar si la apertura fue exitosa
-    if (!archivoSalida.is_open()) {
-        cerr > calificacion;
+    // --- LEER EL ARCHIVO ---
+    ifstream archivoEntrada("ejemplo.txt"); // Abre archivo para lectura
+    if (archivoEntrada.is_open()) {
+        string linea;
+        while (getline(archivoEntrada, linea)) { // Lee línea por línea
+            cout << "Leído: " << linea << endl;
+        }
+        archivoEntrada.close(); // Cierra el archivo
+    } else {
+        cout << "Error al abrir archivo para lectura." << endl;
+        return 1;
+    }
 
-        // Limpiar el buffer de entrada (el salto de línea que quedó)
-        cin.ignore(10000, '\n');
+    return 0;
+}
+```
 
-        // Escribir en el archivo: nombre y calificación separados por coma
-        // Usamos el operador > opcion;
-    cin.ignore(10000, '\n'); // Limpiar buffer
-
-    switch (opcion) {
-        case 1:
-            agregarEstudiante(nombreArchivo);
-            break;
-        case 2:
-            leerEstudiantes(nombreArchivo);
-            break;
-        case 3:
-            cout `: provee `ifstream`, `ofstream`, `fstream`.
-- ``: para manejar cadenas de texto (nombres).
-- ``: solo se usa `exit()` aquí, pero no es necesario en este ejemplo (podríamos omitirlo).
-
-#### 2. Función `agregarEstudiante`
-- **Apertura**: `ofstream archivoSalida(nombreArchivo, ios::app);`  
-  - `ofstream` para escritura.  
-  - `ios::app` abre el archivo en modo "append": los datos se añaden al final sin borrar lo existente. Si el archivo no existe, se crea.  
-- **Verificación**: `if (!archivoSalida.is_open())` comprueba si la apertura falló (permisos, ruta inválida, etc.).  
-- **Lectura de datos**: usamos `getline(cin, nombre)` para permitir nombres con espacios. Luego `cin >> calificacion` y `cin.ignore()` para limpiar el salto de línea.  
-- **Escritura**: `archivoSalida >` deja, evitando que `getline` posterior lea una línea vacía.
-
----
-
-### Consideraciones Adicionales (para llevar a nivel profesional)
-
-- **Modo binario**: si trabajas con datos estructurados (por ejemplo, un `struct`), usa `ios::binary` y funciones `read()`/`write()`. Ejemplo:
-  ```cpp
-  struct Registro { int id; char nombre[50]; };
-  ofstream archivo("datos.bin", ios::binary);
-  Registro r = {1, "Juan"};
-  archivo.write(reinterpret_cast(&r), sizeof(r));
-  ```
-- **Manejo de errores robusto**: además de `is_open()`, usa `good()`, `fail()`, `bad()` después de cada operación.  
-- **Flujos con nombre de archivo en C++17**: puedes usar `std::filesystem::path` para mayor portabilidad.  
-- **Archivos de texto grandes**: lee por bloques con `read()` en lugar de línea por línea para mejorar rendimiento.  
-- **Cierre automático**: el destructor de `ifstream`/`ofstream` cierra el archivo, pero es recomendable cerrar explícitamente si necesitas reutilizar el objeto o verificar errores de escritura (el buffer se vacía en `close()`).
+Este programa es autocontenido, no tiene funciones auxiliares y muestra el flujo esencial: abrir, escribir/leer, cerrar.
 
 ### Conclusión
 
